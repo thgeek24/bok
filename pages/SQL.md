@@ -1,0 +1,14 @@
+- Why
+- What
+	- Structured query language (SQL) is a standard language for database creation and manipulation
+- How
+	- [[SQL优化]]
+	- [[Buffer Pool]] {{embed ((66447574-e465-48b0-9e85-03c782175cbb))}}
+	- [[Undo log]] {{embed ((664475c8-ef7e-4afd-b0ed-cd3f54e7953f))}}
+	- [[redo log]] {{embed ((664476eb-57ca-4829-b762-b7b9a08a479f))}}
+	- [[binlog]] {{embed ((66447702-6217-4e8e-8feb-f46e59f72be8))}}
+	- [[从准备更新一条数据到事务的提交的流程]]
+	-
+- How Good
+- Refs
+- See Also

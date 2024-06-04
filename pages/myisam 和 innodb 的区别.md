@@ -1,0 +1,11 @@
+- What
+	- [[myisam]]{{embed ((6645cd5c-f0a6-4c49-8242-9a0815b83e4a))}}
+	- [[innodb]]{{embed ((664481e7-2961-472e-b959-b83491887cd3))}}
+- Why
+- How
+- How Good
+- Refs
+- See Also
+-
+-
+-

@@ -1,0 +1,12 @@
+- Why
+	- My mindset that defines who I am, what I wanna do, how I get these things done, etc.
+- What
+	- key/fundamental components
+		- move fast and break things(fail fast and move on)
+		- [[pomodoro technique]]
+- How
+- How Good
+	- [[Learning Techeniques]]
+	- [[费曼学习法]]
+- Refs
+- See Also

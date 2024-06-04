@@ -1,0 +1,10 @@
+- Why
+- What
+	- [[Cognitive Load Thoery]]
+- How
+- How Good
+- Refs
+	- [我这辈子见过最好的学习方法 | CLT认知负荷理论 | 汤质看本质]({{video https://www.bilibili.com/video/BV1rH4y1J7EK/?spm_id_from=333.999.0.0&vd_source=f036ee6ff83648f1608a7ffdb6623c4d}})
+- See Also
+-
+-

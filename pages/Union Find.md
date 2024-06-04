@@ -1,0 +1,8 @@
+- What
+- Why
+- How
+	- use an array of length n to indicate the roots of n nodes
+	- update the array accordingly so that each disconnected group has one and only one root
+- How Good
+- Refs
+- See Also
