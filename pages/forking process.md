@@ -1,0 +1,8 @@
+- What
+	- Forking is an operating system operation where the current process (the parent) creates a duplicate of itself (the child). In Unix-like systems, this is done using the fork() system call. The child process gets an exact copy of the parent’s memory space at the time of forking, but both processes will continue to run independently after the fork.
+- Why
+- How
+- How Good
+- Refs
+- See Also
+-
