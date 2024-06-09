@@ -129,6 +129,7 @@
 		- 控制key的数量
 		  logseq.order-list-type:: number
 	- 过期时间和永久有效分别怎么设置
-		- EXPIRE和 PERSIST
+		- EXPIRE 和 PERSIST
+	- [[Redis管道]]
 - Refs
 - See Also
