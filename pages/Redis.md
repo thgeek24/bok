@@ -108,6 +108,7 @@
 	- [[Redis的内存用完了怎么办]]
 		- 如果达到设置的上限，Redis的写命令会返回错误信息（但是读命令还可以正常返回）；或者配置内存淘汰机制，当Redis达到内存上限时会冲刷掉旧的内容
 	- [[Redis内存优化]]
+	  collapsed:: true
 		- 缩减键值对象
 		  logseq.order-list-type:: number
 			- key长度：在完整描述业务情况下，键值越短越好
@@ -120,12 +121,14 @@
 					- 使用更高效的[[序列化工具]]，来降低字节数组大小
 		- 共享对象池
 		  logseq.order-list-type:: number
-			-
+			- [[Redis对象共享池]]
 		- 字符串优化
 		  logseq.order-list-type:: number
 		- 编码优化
 		  logseq.order-list-type:: number
 		- 控制key的数量
 		  logseq.order-list-type:: number
+	- 过期时间和永久有效分别怎么设置
+		- EXPIRE和 PERSIST
 - Refs
 - See Also
