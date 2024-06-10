@@ -1,0 +1,8 @@
+- why
+	- history of file adding, modification and deletion need to be recorded
+- what
+	- git is a file-tracking software invented by Linus
+- how
+	-
+- how good
+-
