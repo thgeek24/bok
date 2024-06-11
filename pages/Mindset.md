@@ -4,9 +4,11 @@
 	- key/fundamental components
 		- move fast and break things(fail fast and move on)
 		- [[pomodoro technique]]
+		- [[Longtermism]]
 - How
 - How Good
 	- [[Learning Techeniques]]
 	- [[费曼学习法]]
+	- Other
 - Refs
 - See Also
