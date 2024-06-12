@@ -1,0 +1,24 @@
+- What
+- Why
+	- 如果主从库在命令传播时出现了网络闪断，那么，从库就会和主库重新进行一次全量复制，开销非常大。从 Redis 2.8 开始，网络断了之后，主从库会采用增量复制的方式继续同步
+- How
+	- 流程
+	  collapsed:: true
+		- ![](https://pdai.tech/images/db/redis/db-redis-copy-3.jpg)
+		- `repl_backlog_buffer`
+			- 为了从库断开之后，如何找到主从差异数据而设计的环形缓冲区，从而避免全量复制带来的性能开销
+			- 如果从库断开时间太久，`repl_backlog_buffer`环形缓冲区被主库的写命令覆盖了，那么从库连上主库后只能重新进行一次全量复制，所以**`repl_backlog_buffer`配置尽量大一些，可以降低主从断开后全量复制的概率**
+			- 在`repl_backlog_buffer`中找主从差异的数据后，如何发给从库呢？这就用到了`replication buffer`
+		- `replication buffer`
+			- Redis 无论是和客户端通信，还是和从库通信，都需要分配一个内存 buffer 进行数据交互。客户端是一个 client，从库是一个 client，每个 client 连上 Redis 后，Redis 都会分配一个 client buffer，所有数据交互都是通过这个 buffer 进行的
+			- Redis 先把数据写到这个 buffer 中，然后再把 buffer 中的数据发到 client socket 中，再通过网络发送出去，这样就完成了数据交互
+			- 所以主从在增量同步时，从库作为一个 client，也会分配一个 buffer，只不过这个 buffer 专门用来传播用户的写命令到从库，保证主从数据一致
+	- repl_backlog_size
+	  collapsed:: true
+		- 定义
+			- TODO 环形缓冲区的大小
+		- 一个从库如果和主库断连时间过长，造成它从主库 repl_backlog_buffer 的 slave_repl_offset 位置上的数据已经被覆盖掉了，此时从库和主库间将进行全量复制
+		- 每个从库会记录自己的 slave_repl_offset，每个从库的复制进度也不一定相同。在和主库重连进行恢复时，从库会通过 psync 命令把自己记录的 slave_repl_offset 发给主库，主库会根据从库各自的复制进度，来决定这个从库可以进行增量复制，还是全量复制
+- How Good
+- Refs
+- See Also
