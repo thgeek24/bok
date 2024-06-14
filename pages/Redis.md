@@ -133,7 +133,7 @@
 	- [[Redis管道]]
 	- [[Redis事务]]
 	- [[Redis主从复制]]
-	-
+	- [[Redis 哨兵机制]]
 - Refs
 - See Also
 -
