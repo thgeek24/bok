@@ -1,0 +1,20 @@
+Index: pages/Redis事务.md
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>- What\n\t- 一组命令的集合。事务支持一次执行多个命令，一个事务中所有命令都会被序列化。在事务执行过程，会按照顺序执行队列中的命令，其他客户端提交的命令请求不会插入到事务执行命令序列中\n\t- 总结\n\t\t- Redis事务就是一次、顺序性、排他性的执行一个队列中的一系列命令\n- Why\n- How\n\t- 相关命令 #card\n\t  collapsed:: true\n\t\t- `MULTI`\n\t\t\t- 开启事务，Redis会将后续的命令逐个放入队列中，然后使用`EXEC`命令来原子化执行这个命令系列\n\t\t- `EXEC`\n\t\t\t- 执行事务中的所有操作命令\n\t\t- `DISCARD`\n\t\t\t- 取消事务，放弃执行事务块中的所有命令\n\t\t- `WATCH`\n\t\t\t- 监视一个或多下key，如果事务在执行前，这个key（或多个key）被其他命令修改，则事务被中断，不会执行事务中的任何命令\n\t\t- `UNWATCH`\n\t\t\t- 取消`WATCH`对所有key的监视\n\t- 三个阶段\n\t\t- 开启：以`MULTI`开始一个事务\n\t\t- 入队：将多个命令入队到事务中，接到这些命令并不会立即执行，而是放到等待执行的事务队列里面\n\t\t- 执行：由`EXEC`命令触发事务\n\t\t  \n\t\t  当一个客户端切换到事务状态之后，服务器会根据这个客户端发来的不同命令执行不同的操作：\n\t\t- 如果客户端发来的命令是`EXEC`、`DISCARD`、`WATCH`、`MULTI`命令中的任何一个，那么服务器立即执行这个命令\n\t\t- 如果客户端发来是上述四个命令之外的命令\n- How Good\n- Refs\n- See Also
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/pages/Redis事务.md b/pages/Redis事务.md
+--- a/pages/Redis事务.md	
++++ b/pages/Redis事务.md	
+@@ -23,7 +23,7 @@
+ 		  
+ 		  当一个客户端切换到事务状态之后，服务器会根据这个客户端发来的不同命令执行不同的操作：
+ 		- 如果客户端发来的命令是`EXEC`、`DISCARD`、`WATCH`、`MULTI`命令中的任何一个，那么服务器立即执行这个命令
+-		- 如果客户端发来是上述四个命令之外的命令
++		- 如果客户端发来是上述四个命令之外的命令，则
+ - How Good
+ - Refs
+ - See Also
+\ No newline at end of file

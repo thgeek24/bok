@@ -1,0 +1,13 @@
+- What
+	- Redis 在 2.8.18 后开始支持无磁盘复制，即子进程通过网络将 RDB 文件发送给从服务器，不使用磁盘进行中间存储
+	- master 创建一个新子进程将 RDB 文件 dump 到 slave 的 socket，不经过主进程，不经过磁盘。适用于磁盘速度较慢，且网络速度较快的情况
+- Why
+	- Redis 默认是磁盘复制，但是**如果使用比较低速的磁盘，这种操作会给主服务器带来较大的压力**
+- How
+	- `repl-diskless-sync`
+		- 是否启动无磁盘复制
+	- `repl-diskless-sync-delay`
+		- 传输开始的延迟时间；master 等待一个秒数，如果没 slave 来的话，就直接传，后续来的要排队；否则就可以一起传
+- How Good
+- Refs
+- See Also

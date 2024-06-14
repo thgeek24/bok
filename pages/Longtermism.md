@@ -1,0 +1,8 @@
+- What
+	- A mindset or philosophy that emphasises the importance of considering the long-term impacts and consequences of decisions made in the present.
+		- 如果做出的抉择能在 long term 产生更大收益，但需要在短期承受一定痛苦或者进行一些付出，那么就是可以考虑的
+- Why
+- How
+- How Good
+- Refs
+- See Also

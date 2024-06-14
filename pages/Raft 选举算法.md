@@ -1,0 +1,9 @@
+- What
+	- 选举的票数大于等于 num(sentinels)/2+1 时，成为领导者，如果没有超过，继续选举
+- Why
+- How
+- How Good
+- Refs
+	- [分布式算法 - Raft算法](https://pdai.tech/md/algorithm/alg-domain-distribute-x-raft.html)
+- See Also
+-

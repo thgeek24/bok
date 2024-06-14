@@ -1,0 +1,7 @@
+- What
+	- 每个 Redis 实例启动时都会自动生成的一个随机 ID，用来唯一标记这个实例
+- Why
+- How
+- How Good
+- Refs
+- See Also
