@@ -1,0 +1,14 @@
+- What
+	- Redis的事件驱动库只关注网络 IO，以及定时器。该事件库处理下面两类事件：
+		- [[文件事件（file event）]]
+			- 用于处理 Redis 服务器和客户端之间的网络 IO
+		- 时间事件（time event）
+			- Redis 服务器中的一些操作（比如 serverCron 函数）需要在给定的时间点进行，而时间事件就是处理这类定时操作的
+	- 事件驱动库的代码主要在`arc/ae.c`中实现的，如下图所示
+		- ![](https://pdai.tech/images/db/redis/db-redis-event-1.png)
+		  `aeEventLoop`是整个事件驱动的核心，它管理着文件事件表和时间事件列表，不断地循环处理着就绪的文件事件和到期的时间事件
+- Why
+- How
+- How Good
+- Refs
+- See Also

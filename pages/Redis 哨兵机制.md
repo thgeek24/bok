@@ -58,7 +58,6 @@
 			  ![](https://pdai.tech/images/db/redis/db-redis-sen-4.png)
 		- 转移后
 		  ![](https://pdai.tech/images/db/redis/db-redis-sen-5.png)
-		-
 - How Good
 - Refs
 - See Also
