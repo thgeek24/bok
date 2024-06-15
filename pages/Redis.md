@@ -135,6 +135,7 @@
 	- [[Redis主从复制]]
 	- [[Redis 哨兵机制]]
 	- [[Redis 事件机制]]
+	- [[Redis 发布订阅]]
 - Refs
 - See Also
 -
