@@ -136,5 +136,6 @@
 	- [[Redis 哨兵机制]]
 	- [[Redis 事件机制]]
 	- [[Redis 发布订阅]]
+	- [[Redis Cluster]]
 - Refs
 - See Also
