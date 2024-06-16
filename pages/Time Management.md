@@ -1,8 +1,9 @@
 - What
 - Why
 - How
-	- {{video https://www.youtube.com/watch?v=zWk69IPsMQs&ab_channel=MoneyXYZ}}
-	-
+	- Youtuber: MoneyXYZ
+		- {{video https://www.youtube.com/watch?v=zWk69IPsMQs&ab_channel=MoneyXYZ}}
+			-
 - How Good
 - Refs
 - See Also
