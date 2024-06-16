@@ -132,10 +132,16 @@
 		- EXPIRE 和 PERSIST
 	- [[Redis管道]]
 	- [[Redis事务]]
-	- [[Redis主从复制]]
+	- [[Redis 主从复制]]
 	- [[Redis 哨兵机制]]
 	- [[Redis 事件机制]]
 	- [[Redis 发布订阅]]
 	- [[Redis Cluster]]
+	- Redis 客户端
+		- [[Redission]]、Jedis、lettuce 等，官方推荐使用 Redission
+	- [[Pipe Mode]]
+	- [[Redis 分布式锁]]
 - Refs
 - See Also
+-
+-
