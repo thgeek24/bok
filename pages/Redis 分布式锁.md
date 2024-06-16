@@ -1,0 +1,12 @@
+- What
+- Why
+- How
+	- 常规
+		- 加锁：SET NX PX + 校验唯一随机值
+		- 解锁：Lua 脚本
+	- [[RedLock]]
+	- [[Redission]]框架
+		- Redission watchdog 或者它实现了 RedLock 方式
+- How Good
+- Refs
+- See Also
