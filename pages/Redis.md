@@ -141,6 +141,7 @@
 		- [[Redission]]、Jedis、lettuce 等，官方推荐使用 Redission
 	- [[Pipe Mode]]
 	- [[Redis 分布式锁]]
+	- [[Redis 缓存]]
 - Refs
 - See Also
 -
