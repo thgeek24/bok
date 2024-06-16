@@ -16,6 +16,10 @@
 		- 基于模式（pattern）的发布/订阅
 			- 下图展示了一个带有频道和模式的例子，其中`tweet.shop.*`模式匹配了`tweet.shop.ipad`和`tweet.shop.kindle`频道，并且有不同的客户端分别订阅了它们三个
 			  ![](https://pdai.tech/images/db/redis/db-redis-sub-5.svg)
+				- 当有消息发送到 tweet.shop.kindle 频道时，信息除了发送给 clientX 和 clientY 之外，还会发送给订阅 tweet.shop.* 模式的 client123 和 client26
+				  ![](https://pdai.tech/images/db/redis/db-redis-sub-6.svg)
+				- 类似的，如果接收到时信息的是频道 tweet.shop.ipad，那么 client123 和 client256 同样会收到信息
+				  ![](https://pdai.tech/images/db/redis/db-redis-sub-7.svg)
 - How
 - How Good
 - Refs
