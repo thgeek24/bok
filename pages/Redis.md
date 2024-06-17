@@ -143,7 +143,9 @@
 	- [[Redis 分布式锁]]
 	- [[Redis 缓存]]
 	- [[Redis 性能问题的定位]]
+	- [[Redis 6.0]]
 - Refs
 - See Also
+-
 -
 -
