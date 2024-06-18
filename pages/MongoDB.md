@@ -67,7 +67,8 @@
 				- 然后周期性重复如上过程
 			- evict 过程涉及到多个 eviction thread 和 hazard pointer 技术
 			- evict 过程以 page 为单位做淘汰，而不是以 K/V。这一点和 [[memcached]] 、Redis 等常用的缓存 LRU 不太一样，因为在磁盘上数据的最小描述单位是 page block，而不是记录
-	-
+	- [[MongoDB 复制集]]
+		-
 - How Good
 - Refs
 - See Also
