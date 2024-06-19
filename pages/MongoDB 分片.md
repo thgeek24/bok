@@ -22,6 +22,7 @@
 			  ![](https://pdai.tech/images/db/mongo/mongo-z-shard-2.png)
 			-
 	- 内部如何管理数据
+	  collapsed:: true
 		- 在一个 shard server 内部，MongoDB 会把数据分为chunks，每个 chunk 代表这个 shard server 内部一部分数据
 			- chunk 的两个用途
 			  collapsed:: true
@@ -47,10 +48,19 @@
 			- 采用的算法
 				- **哈希分片（hash sharding）**
 					- 利用哈希索引作为分片键，其最大好处是保证数据在各个节点分布基本均匀
-					- MongoDB 计算一个字段的哈希值，并用这个哈希值来创建数据块。在使用基于哈希分片的系统中，拥有**相近分片键**的文档很可能不会存储在同一个数据块中，因此数据的分离性更好一些
+					- MongoDB 计算一个字段的哈希值，并用这个哈希值来创建数据块
 					  ![](https://pdai.tech/images/db/mongo/mongo-z-shard-6.png)
+					- 在使用基于哈希分片的系统中，拥有**相近分片键**的文档很可能不会存储在同一个数据块中，因此数据的分离性更好一些
 				- **范围分片（range sharding）**
 					- 将单个 Collection 的数据分散存储在多个 shard 上，用户可以指定集合内文档的某个字段即 shard key 来进行范围拨片（range sharding）
+					- 对于基于范围的分片，MongoDB 按照分片键的范围把数据分成不同部分
+					  ![](https://pdai.tech/images/db/mongo/mongo-z-shard-7.png){:height 146, :width 419}
+					- 在使用分片键做范围划分的系统中，拥有相近分片键的文档很可能存储在同一数据块（chunk）中，因此也会存储在同一分片（shard）中
+				- 哈希和范围的结合
+					- 如下是基于 X 索引字段进行范围分片，但是随着 X 的增长，大于 20 的数据全部进入了 Chunk C，这导致了数据的不均衡
+					  ![](https://pdai.tech/images/db/mongo/mongo-z-shard-111.png)
+					- 这时对 X 索引字段建哈希索引
+					  ![](https://pdai.tech/images/db/mongo/mongo-z-shard-112.png){:height 218, :width 419}
 - How Good
 - Refs
 - See Also
