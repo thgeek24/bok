@@ -70,6 +70,8 @@
 	- [[MongoDB 复制集]]
 	- [[MongoDB 分片]]
 	- [[MongoDB 备份恢复]]
+	- [[MongoDB 设计文档模型]]
+	-
 - How Good
 - Refs
 - See Also
