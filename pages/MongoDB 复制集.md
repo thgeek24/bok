@@ -62,6 +62,18 @@
 			- TODO 当成员在故障转移后重新加入其复制集时，回滚将还原以前的主数据库上的写操作。本质上就是保持数据的一致性
 			- TODO 仅当主服务器接受了在主服务器降级之前，辅助服务器未成功复制的写操作时，才需要回滚。当主数据库作为辅助数据库重新加入集合时，它会还原或“回滚”其写入操作，以保持数据库与其他成员的一致性
 	- 同步数据
+	  collapsed:: true
+		- 目的
+			- 维护共享数据集的最新副本，包括复制集的辅助成员或复制其他成员的数据
+		- 两种形式
+			- **初始同步（Initial Sync）**使用完整的数据集填充新成员，即**全量同步**
+				- 新节点加入，无任何 oplog，此时需先进行 initial sync
+				- initial sync 开始时，会主动将 _initialSyncFlag 字段设置为 true，正常结束后再设置为 false；如果节点重启时，发现 _initialSyncFlag 为 true，说明上次全量同步失败了，则会重新新进行 initial sync
+				- 当用户发送 resync 命令时，initialSyncRequested 会设置为 true，此时会重新开始以此 initial sync
+			- **复制（Replication）**将正在进行的更改应用于整个数据集，即**增量同步**
+				- initial sync 结束后，Secondary 就会“不断拉去主节点上心产生的 oplog 并重放”
+	- [[MongoDB 分片]]
+		-
 		-
 - How Good
 - Refs
