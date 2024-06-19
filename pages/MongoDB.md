@@ -71,7 +71,7 @@
 	- [[MongoDB 分片]]
 	- [[MongoDB 备份恢复]]
 	- [[MongoDB 设计文档模型]]
-	-
+	- [[MongoDB 性能优化]]
 - How Good
 - Refs
 - See Also
