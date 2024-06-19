@@ -1,0 +1,15 @@
+- What
+	- 分类
+		- 暗潮（Dark Wave）
+			- 特点
+				- 用音乐以及不拘泥于音乐的形式表达强烈的情感
+			- 代表作
+				- 我和我死去的小狗
+		- 死亡金属
+		- Jazz
+		- R & B
+- Why
+- How
+- How Good
+- Refs
+- See Also
