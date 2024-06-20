@@ -1,0 +1,151 @@
+- What
+  collapsed:: true
+	- 方式
+		- DSL
+			- 基于文本
+				- match
+				- query string
+			- 基于词项
+				- term
+			- 复合查询
+				- 5 种
+		- EQL（Elastic Query Language）
+			- bucket
+			- metric
+			- pipeline
+		- SQL
+- Why
+- How
+	- query 和 filter 的区别
+	  collapsed:: true
+		- query 是查询 + score
+		- filter 仅包含查询
+		  如下所示，复合查询中的 constant_score 查询无需计算 score，所以对应查询是 filter 而不是 query
+		  ```sh
+		  GET /test-dsl-constant/_search
+		  {
+		    "query": {
+		      "constant_score": {
+		        "filter": {
+		          "term": { "content": "apple" }
+		        },
+		        "boost": 1.2
+		      }
+		    }
+		  }
+		  ```
+	- match 和 term 的区别
+	  collapsed:: true
+		- match 基于文本
+		- term 基于索引的词项
+		  如下三中查询等同
+		  ```sh
+		  GET /test-dsl-match/_search
+		  {
+		      "query": {
+		          "match": {
+		              "title": "BROWN DOG"
+		          }
+		      }
+		  }
+		  
+		  GET /test-dsl-match/_search
+		  {
+		    "query": {
+		      "match": {
+		        "title": {
+		          "query": "BROWN DOG",
+		          "operator": "or"
+		        }
+		      }
+		    }
+		  }
+		  
+		  GET /test-dsl-match/_search
+		  {
+		    "query": {
+		      "bool": {
+		        "should": [
+		          {
+		            "term": {
+		              "title": "brown"
+		            }
+		          },
+		          {
+		            "term": {
+		              "title": "dog"
+		            }
+		          }
+		        ]
+		      }
+		    }
+		  }
+		  ```
+	- should 和 must 的区别
+	  collapsed:: true
+		- should 是任意匹配
+		  ```sh
+		  GET /test-dsl-match/_search
+		  {
+		    "query": {
+		      "bool": {
+		        "should": [
+		          {
+		            "term": {
+		              "title": "brown"
+		            }
+		          },
+		          {
+		            "term": {
+		              "title": "dog"
+		            }
+		          }
+		        ]
+		      }
+		    }
+		  }
+		  ```
+		- must 是同时匹配
+		  ```sh
+		  GET /test-dsl-match/_search
+		  {
+		    "query": {
+		      "match": {
+		        "title": {
+		          "query": "BROWN DOG",
+		          "operator": "and"
+		        }
+		      }
+		    }
+		  }
+		  ```
+		  等同于
+		  ```sh
+		  GET /test-dsl-match/_search
+		  {
+		    "query": {
+		      "bool": {
+		        "must": [
+		          {
+		            "term": {
+		              "title": "brown"
+		            }
+		          },
+		          {
+		            "term": {
+		              "title": "dog"
+		            }
+		          }
+		        ]
+		      }
+		    }
+		  }
+		  ```
+	- match，match_phrase 和 match_phrase_prefix 有什么区别
+		- match 本质是对 term 组合
+		- match_phrase 本质是连续的 term 的查询（and 关系）
+		- match_phrase_prefix 在 match_phrase 基础上提供了一种可以查最后一个词项是前缀的方法
+		  例如，某个字段内容是“quick brown fox”，如果我们需要查询包含“quick brown f”，就需要使用 match_phrase_prefix，因为 f 不是完整的 term 分词，不能用 match_phrase
+- How Good
+- Refs
+- See Also

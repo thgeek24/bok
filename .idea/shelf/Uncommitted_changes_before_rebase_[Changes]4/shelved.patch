@@ -1,0 +1,20 @@
+Index: pages/ES 查询和聚合.md
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>- What\n  collapsed:: true\n\t- 方式\n\t\t- DSL\n\t\t\t- 基于文本\n\t\t\t\t- match\n\t\t\t\t- query string\n\t\t\t- 基于词项\n\t\t\t\t- term\n\t\t\t- 复合查询\n\t\t\t\t- 5 种\n\t\t- EQL（Elastic Query Language）\n\t\t\t- bucket\n\t\t\t- metric\n\t\t\t- pipeline\n\t\t- SQL\n- Why\n- How\n\t- query 和 filter 的区别\n\t  collapsed:: true\n\t\t- query 是查询 + score\n\t\t- filter 仅包含查询\n\t\t  如下所示，复合查询中的 constant_score 查询无需计算 score，所以对应查询是 filter 而不是 query\n\t\t  ```sh\n\t\t  GET /test-dsl-constant/_search\n\t\t  {\n\t\t    \"query\": {\n\t\t      \"constant_score\": {\n\t\t        \"filter\": {\n\t\t          \"term\": { \"content\": \"apple\" }\n\t\t        },\n\t\t        \"boost\": 1.2\n\t\t      }\n\t\t    }\n\t\t  }\n\t\t  ```\n\t- match 和 term 的区别\n\t  collapsed:: true\n\t\t- match 基于文本\n\t\t- term 基于索引的词项\n\t\t  如下三中查询等同\n\t\t  ```sh\n\t\t  GET /test-dsl-match/_search\n\t\t  {\n\t\t      \"query\": {\n\t\t          \"match\": {\n\t\t              \"title\": \"BROWN DOG\"\n\t\t          }\n\t\t      }\n\t\t  }\n\t\t  \n\t\t  GET /test-dsl-match/_search\n\t\t  {\n\t\t    \"query\": {\n\t\t      \"match\": {\n\t\t        \"title\": {\n\t\t          \"query\": \"BROWN DOG\",\n\t\t          \"operator\": \"or\"\n\t\t        }\n\t\t      }\n\t\t    }\n\t\t  }\n\t\t  \n\t\t  GET /test-dsl-match/_search\n\t\t  {\n\t\t    \"query\": {\n\t\t      \"bool\": {\n\t\t        \"should\": [\n\t\t          {\n\t\t            \"term\": {\n\t\t              \"title\": \"brown\"\n\t\t            }\n\t\t          },\n\t\t          {\n\t\t            \"term\": {\n\t\t              \"title\": \"dog\"\n\t\t            }\n\t\t          }\n\t\t        ]\n\t\t      }\n\t\t    }\n\t\t  }\n\t\t  ```\n\t- should 和 must 的区别\n\t  collapsed:: true\n\t\t- should 是任意匹配\n\t\t  ```sh\n\t\t  GET /test-dsl-match/_search\n\t\t  {\n\t\t    \"query\": {\n\t\t      \"bool\": {\n\t\t        \"should\": [\n\t\t          {\n\t\t            \"term\": {\n\t\t              \"title\": \"brown\"\n\t\t            }\n\t\t          },\n\t\t          {\n\t\t            \"term\": {\n\t\t              \"title\": \"dog\"\n\t\t            }\n\t\t          }\n\t\t        ]\n\t\t      }\n\t\t    }\n\t\t  }\n\t\t  ```\n\t\t- must 是同时匹配\n\t\t  ```sh\n\t\t  GET /test-dsl-match/_search\n\t\t  {\n\t\t    \"query\": {\n\t\t      \"match\": {\n\t\t        \"title\": {\n\t\t          \"query\": \"BROWN DOG\",\n\t\t          \"operator\": \"and\"\n\t\t        }\n\t\t      }\n\t\t    }\n\t\t  }\n\t\t  ```\n\t\t  等同于\n\t\t  ```sh\n\t\t  GET /test-dsl-match/_search\n\t\t  {\n\t\t    \"query\": {\n\t\t      \"bool\": {\n\t\t        \"must\": [\n\t\t          {\n\t\t            \"term\": {\n\t\t              \"title\": \"brown\"\n\t\t            }\n\t\t          },\n\t\t          {\n\t\t            \"term\": {\n\t\t              \"title\": \"dog\"\n\t\t            }\n\t\t          }\n\t\t        ]\n\t\t      }\n\t\t    }\n\t\t  }\n\t\t  ```\n\t- match，match_phrase 和 match_phrase_prefix 有什么区别\n\t\t- match 本质是对 term 组合\n\t\t- match_phrase 本质是连续的 term 的查询（and 关系）\n\t\t- match_phrase_prefix 在 match_phrase 基础上提供了一种可以查最后一个词项是前缀的方法\n\t\t  例如，某个字段内容是“quick brown fox”，如果我们需要查询包含“quick brown f”，就需要使用 match_phrase_prefix，因为 f 不是完整的 term 分词，不能用 match——\n- How Good\n- Refs\n- See Also
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/pages/ES 查询和聚合.md b/pages/ES 查询和聚合.md
+--- a/pages/ES 查询和聚合.md	(revision 04bb3f1273e1b73567f7eeec71e9d93d7d71c684)
++++ b/pages/ES 查询和聚合.md	(date 1718854727354)
+@@ -145,7 +145,7 @@
+ 		- match 本质是对 term 组合
+ 		- match_phrase 本质是连续的 term 的查询（and 关系）
+ 		- match_phrase_prefix 在 match_phrase 基础上提供了一种可以查最后一个词项是前缀的方法
+-		  例如，某个字段内容是“quick brown fox”，如果我们需要查询包含“quick brown f”，就需要使用 match_phrase_prefix，因为 f 不是完整的 term 分词，不能用 match——
++		  例如，某个字段内容是“quick brown fox”，如果我们需要查询包含“quick brown f”，就需要使用 match_phrase_prefix，因为 f 不是完整的 term 分词，不能用 match_phrase
+ - How Good
+ - Refs
+ - See Also
+\ No newline at end of file

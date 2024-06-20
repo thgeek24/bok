@@ -1,0 +1,8 @@
+- What
+	- [[ES 索引模板]]
+	- [[ES 索引的生命周期管理]]
+- Why
+- How
+- How Good
+- Refs
+- See Also

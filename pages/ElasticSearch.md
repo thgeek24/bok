@@ -33,6 +33,8 @@
 		  ![](https://pdai.tech/images/db/es/es-introduce-2-6.png){:height 229, :width 452}
 		- Metric收集和APM性能监控
 		  ![](https://pdai.tech/images/db/es/es-introduce-2-7.png)
+	- [[ES 索引]]
+	- [[ES 查询和聚合]]
 - How Good
 - Refs
 - See Also
