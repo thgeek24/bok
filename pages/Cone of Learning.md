@@ -1,0 +1,6 @@
+- What
+	- A figure of cone concluded by a US university, which demonstrates the remaining knowledge after learning in different ways. According to this cone figure, teaching others what you are learning is the most powerful way to learn it
+- How
+- How Good
+- Refs
+- See Also
