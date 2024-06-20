@@ -1,0 +1,18 @@
+- What
+- Why
+- How
+	- JSON 格式：mongoexport/mongoimport
+		- 优点
+			- 可读性强
+			- 较好的跨版本通用性
+		- 缺点
+			- 体积较大
+			- 只保留了数据部分，不保留索引、账户等其他基础信息
+	- BSON 格式：mongoexport/mongoimport
+		- 优点
+			- 二进制文件，体积小
+		- 缺点
+			- 二进制文件，几乎没有可读性
+- How Good
+- Refs
+- See Also
