@@ -33,7 +33,6 @@
 		- TODO (原文不完整) 在设计上大概分为三类（当然有些是第二和第三类的融合）
 		  ![](https://pdai.tech/images/db/es/es-agg-bucket-1.png)
 	- Metric 聚合
-	  collapsed:: true
 		- 从分类看
 			- 单值分析
 			- 多值分析
@@ -60,13 +59,32 @@
 				- `percentiles`百分数范围
 				- `percentile_ranks`百分数排行
 			- 地理位置型
-				- `geo_bounds`
-				- `geo_centroid`
+				- `geo_bounds`百分数范围
+				- `geo_centroid`百分数排行
 				- `geo_line`
 			- Top 型
-				- `top_hits`
+				- `top_hits`分桶后的 top hits
 				- `top_metrics`
 	- Pipeline 聚合
+		- 含义
+			- 让上一步的聚合结果成为下一个聚合的输入
+		- 从不同维度理解
+			- 第一个维度
+				- 管道聚合有很多不同**类型**，每种类型都与其他聚合计算不同的信息，但是可以将这些类型分为两类
+					- **父级** 父级聚合的输出提供了一组管道聚合，它可以计算新的存储桶或新的聚合以添加到现有存储桶中
+					- **兄弟** 同级聚合的输出提供的管道聚合，并且能够计算与该同级聚合处于同一级别的新聚合
+			- 第二个维度
+				- 根据**功能设计**的意图
+					- 比如前置聚合可能是 Bucket 聚合，后置可能是 Metric 聚合，那么它就可以成为一类管道
+					  进而引出了：`xxx bucket`
+					- Bucket 聚合 -> Metric 聚合：Bucket 聚合的结果，成为下一步 Metric 聚合的输入
+						- Average bucket
+						- Min bucket
+						- Max bucket
+						- Sum bucket
+						- Stats bucket
+						- Extended stats bucket
+						- ...
 - Why
 - How
 	- query 和 filter 的区别
