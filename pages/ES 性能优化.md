@@ -1,0 +1,31 @@
+- What
+- Why
+- How
+	- 硬件配置优化
+		- CPU
+			- 大多数 Elasticsearch 部署往往对 CPU 要求不高； CPUs 和更多的核数之间选择，选择更多的核数更好。多个内核提供的额外并发远胜过稍微快一点点的时钟频率
+		- 内存
+			- 配置
+				- 由于 ES 构建基于 lucene，而 lucene 设计强大之处在于 lucene 能够很好的利用操作系统内存来缓存索引数据，以提供快速的查询性能。lucene 的索引文件 segements 是存储在单文件中的，并且不可变，对于 OS 来说，能够很友好地将索引文件保持在 cache 中，以便快速访问；因此，我们很有必要将一半的物理内存留给 lucene；另**一半的物理内存留给 ES**（JVM heap）
+			- 禁止 swap
+				- 一旦允许内存与磁盘的交换，会引起致命的性能问题。可以通过在 elasticsearch.yml 中 bootstrap.memory_lock: true，以保持 JVM 锁定内存，保证 ES 的性能
+			- 垃圾回收器
+				- 知JDK 8附带的 HotSpot JVM 的早期版本存在一些问题，当启用G1GC收集器时，这些问题可能导致索引损坏。受影响的版本早于JDK 8u40随附的HotSpot版本。如果你使用的JDK8较高版本，或者JDK9+，我推荐你使用G1 GC； 因为我们目前的项目使用的就是G1 GC，运行效果良好，对Heap大对象优化尤为明显
+		- 磁盘
+			-
+	- 索引方面优化
+		- 批量提交
+		- 增加 Refresh 时间间隔
+		- 索引缓冲的设置可以控制多少内存分配
+		- translog 相关的设置
+		- _id 字段的使用
+		- _all 字段及 _source 字段的使用
+		- 合理的配置使用 index 属性
+	- 查询方面优化
+		- Filter VS Query
+		- 深度翻页
+		- 避免层级过深的聚合查询
+		- 通过开启慢查询配置定位慢查询
+- How Good
+- Refs
+- See Also
