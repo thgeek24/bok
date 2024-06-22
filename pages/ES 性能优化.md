@@ -10,21 +10,30 @@
 			- 禁止 swap
 				- 一旦允许内存与磁盘的交换，会引起致命的性能问题。可以通过在 elasticsearch.yml 中 bootstrap.memory_lock: true，以保持 JVM 锁定内存，保证 ES 的性能
 			- 垃圾回收器
-				- 知JDK 8附带的 HotSpot JVM 的早期版本存在一些问题，当启用G1GC收集器时，这些问题可能导致索引损坏。受影响的版本早于JDK 8u40随附的HotSpot版本。如果你使用的JDK8较高版本，或者JDK9+，我推荐你使用G1 GC； 因为我们目前的项目使用的就是G1 GC，运行效果良好，对Heap大对象优化尤为明显
+				- 已知 JDK 8 附带的 HotSpot JVM 的早期版本存在一些问题，当启用[[G1GC]]收集器时，这些问题可能导致索引损坏。受影响的版本早于 JDK 8u40 随附的[[HotSpot]]版本。如果你使用 JDK 8 较高版本，或者 JDK 9+，我推荐你使用 G1 GC； 因为我们目前的项目使用的就是 G1 GC，运行效果良好，对 Heap 大对象优化尤为明显
 		- 磁盘
-			-
+			- 在经济压力能承受的范围内，尽量使用固态硬盘（SSD）
 	- 索引方面优化
 		- 批量提交
+			- 当有大量数据提交的时候，建议采用批量提交（Bulk 操作）；此外使用 bulk 请求时，每个请求不超过几十M，因为太大会导致内存使用过大
 		- 增加 Refresh 时间间隔
+			- 为了提高索引性能，Elasticsearch 在写入数据的时候，采用延迟写入的策略，即数据先写到内存中，当超过默认1秒（index.refresh_interval）会进行一次写入操作，就是将内存中 segment 数据刷新到磁盘中，此时我们才能将数据搜索出来，所以这就是为什么 Elasticsearch 提供的是近实时搜索功能，而不是实时搜索功能。如果我们的系统对数据延迟要求不高的话，我们可以**通过延长 refresh 时间间隔，可以有效地减少 segment 合并压力，提高索引速度**。比如在做全链路跟踪的过程中，我们就将 index.refresh_interval 设置为30s，减少 refresh 次数。再如，在进行全量索引时，可以将 refresh 次数临时关闭，即 index.refresh_interval 设置为-1，数据导入成功后再打开到正常模式，比如30s
 		- 索引缓冲的设置可以控制多少内存分配
+			- indices.memory.index_buffer_size 接受一个百分比或者一个表示字节大小的值。默认是10%
 		- translog 相关的设置
+			- 控制数据从内存到硬盘的操作频率，以减少硬盘 IO。可将 sync_interval 的时间设置大一些。默认为5s。也可以控制 tranlog 数据块的大小，达到 threshold 大小时，才会 flush 到 lucene 索引文件。默认为512m
 		- _id 字段的使用
+			- _id 字段的使用，应尽可能避免自定义 _id，以避免针对 ID 的版本管理；建议使用 ES 的默认 ID 生成策略或使用数字类型 ID 做为主键
 		- _all 字段及 _source 字段的使用
+			- _all 字段及 _source 字段的使用，应该注意场景和需要，_all 字段包含了所有的索引字段，方便做全文检索，如果无此需求，可以禁用；_source 存储了原始的 document 内容，如果没有获取原始文档数据的需求，可通过设置 includes、excludes 属性来定义放入 _source 的字段
 		- 合理的配置使用 index 属性
+			- 合理的配置使用 index 属性，analyzed 和 not_analyzed，根据业务需求来控制字段是否分词或不分词。只有 groupby 需求的字段，配置时就设置成 not_analyzed，以提高查询或聚类的效率。
 	- 查询方面优化
 		- Filter VS Query
 		- 深度翻页
+			- 使用 Elasticsearch scroll 和 scroll-scan 高效滚动的方式来解决这样的问题。也可以结合实际业务特点，文档 id 大小如果和文档创建时间是一致有序的，可以以文档 id 作为分页的偏移量，并将其作为分页查询的一个条件
 		- 避免层级过深的聚合查询
+			- 层级过深的aggregation , 会导致内存、CPU消耗，建议在服务层通过程序来组装业务，也可以通过pipeline的方式来优化
 		- 通过开启慢查询配置定位慢查询
 - How Good
 - Refs
