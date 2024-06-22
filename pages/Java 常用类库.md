@@ -1,0 +1,26 @@
+- What
+	- 常用的开发工具库
+	  collapsed:: true
+		- Apache Common
+			- 是对 JDK 的扩展，包含了很多开源的工具；用于解决平时编程经常会遇到的问题，减少重复劳动
+		- Google Guava
+			- 包含了若干被 Google 的 Java 项目依赖的核心库，例如：集合`collections`、缓存`caching`、原生类型支`primitives support`、并发库`concurrency libraries`、通用注解`common annotations`、字符串处理`string processing`、`I/O`等等。所有这些工具每天都在被 Google 的工程师应用在产品服务中
+		- Hutool
+			- 国产后起之秀，Hutool是一个小而全的Java工具类库，通过静态方法封装，降低相关API的学习成本，提高工作效率
+		- Spring常用工具库
+			- 在 Spring 框架应用中，排在 Apache Common，Guava, Huool 等通用库后，第二优先级可以考虑使用 spring-core-xxx.jar 中的 util 包
+	- 常用的 JSON 库
+	  collapsed:: true
+		- FastJSON（不推荐，漏洞太多）
+		- Jackson
+		- Gson
+			- 序列化
+			- 反序列化
+			- 自定义的序列化和反序列化
+	- [[Lombok]]
+- Why
+-
+- How
+- How Good
+- Refs
+- See Also
