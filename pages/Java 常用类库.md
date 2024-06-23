@@ -18,6 +18,8 @@
 			- 反序列化
 			- 自定义的序列化和反序列化
 	- [[Lombok]]
+	- [[MapStruct]]
+	- [[Lombok 和 MapStruct 工具库的原理]]
 - Why
 -
 - How

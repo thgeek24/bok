@@ -1,0 +1,7 @@
+- What
+- Why
+- How
+- How Good
+- Refs
+	- [JSR 269: Pluggable Annotation Processing API](https://www.jcp.org/en/jsr/proposalDetails?id=269)
+- See Also
