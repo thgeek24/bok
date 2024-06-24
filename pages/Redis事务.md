@@ -5,6 +5,12 @@
 - Why
 - How
 	- 相关命令 #card
+	  card-last-interval:: -1
+	  card-repeats:: 1
+	  card-ease-factor:: 2.5
+	  card-next-schedule:: 2024-06-24T16:00:00.000Z
+	  card-last-reviewed:: 2024-06-24T01:28:47.556Z
+	  card-last-score:: 1
 	  collapsed:: true
 		- `MULTI`
 			- 开启事务，Redis会将后续的命令逐个放入队列中，然后使用`EXEC`命令来原子化执行这个命令系列

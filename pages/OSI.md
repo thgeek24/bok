@@ -1,12 +1,13 @@
 - What
 	- Open System Interconnection Model，缩写 OSI
-	- 自底向上层次结构划分
+	- 自底向上层次结构划分 #card
 		- 物理层（Physical）
 		- 数据链路层（Data Link）
 		- 网络层（Network）
 		- 传输层（Transport）
 		- 会话层（Session）
-		- 表示层（Presentation），应用层（Application）
+		- 表示层（Presentation）
+		- 应用层（Application）
 - Why
 - How
 - How Good

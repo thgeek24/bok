@@ -1,0 +1,26 @@
+- What
+	- 6 种标识 #card
+		- SYN
+			- Synchronize
+			- Initiate and establish a connection
+		- ACK
+			- Acknowledgment
+			- Acknowledge the receipt of packets
+		- PSH
+			- Push
+			- Push data to the receiving application immediately
+		- FIN
+			- Finish
+			- Gracefully terminate a connection
+		- RST
+			- Reset
+			- Abruptly terminate a connection
+		- URG
+			- Urgent
+			- Indicate urgent data that should be processed quickly
+	- [[三次握手]]
+- Why
+- How
+- How Good
+- Refs
+- See Also
