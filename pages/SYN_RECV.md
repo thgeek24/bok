@@ -1,0 +1,7 @@
+- What
+	- TODO 三次握手时，服务端在第一次握手后所处的状态
+- Why
+- How
+- How Good
+- Refs
+- See Also
