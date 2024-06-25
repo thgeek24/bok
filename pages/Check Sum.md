@@ -1,0 +1,10 @@
+- What
+	- 定义
+		- TODO 一种校验机制
+	- 中文名
+		- 校验和
+- Why
+- How
+- How Good
+- Refs
+- See Also
