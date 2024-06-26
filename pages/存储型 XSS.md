@@ -1,0 +1,10 @@
+- What
+	- 定义
+		- 恶意代码会被存储在数据库中，其他用户正常访问时，也会被攻击，影响范围比较大
+	- 示意图
+		- ![](https://pdai.tech/images/security/dev-security-xss-3.png)
+- Why
+- How
+- How Good
+- Refs
+- See Also

@@ -1,0 +1,10 @@
+- What
+	- 定义
+		- 反射型攻击的变种。服务器返回的页面是正常的，只是我们在页面执行 js 的过程中，会把攻击代码植入到页面中
+	- 示意图
+		- ![](https://pdai.tech/images/security/dev-security-xss-2.png)
+- Why
+- How
+- How Good
+- Refs
+- See Also
