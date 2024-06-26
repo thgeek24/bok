@@ -13,6 +13,7 @@
 	- [[Deliberate Practice]]
 	- [[Atomic Habbits]]
 	- [[Cone of Learning]]
+	- [[The Compounding of Knowledge]]
 	- Other
 - Refs
 - See Also
