@@ -1,0 +1,52 @@
+- What
+	- 定义
+		- Spring Framework，一种轻量级框架，旨在提高开发人员的开发效率以及系统的可维护性
+		- 是多个模块的集合：
+			- Core Container（核心容器）
+			- 数据访问/集成
+			- Web
+			- [[AOP]]（面向切面编程）
+			- 工具
+			- 消息和测试模块
+		- 部分模块的具体说明
+			- Core Container 中的 Core 组件是 Spring 所有组件的核心
+			- Beans 组件和 Context 组件是实现[[IOC]]和 DI 的基础
+			- [[AOP]]组件用来实现面向切面编程
+		- 六个特征
+			- 核心技术
+				- 依赖注入（DI），[[AOP]]，事件（Events），资源，[[i18n]]，验证，数据绑定，类型转换，SpEL
+			- 测试
+				- 模拟对象，TestContext 框架，Spring MVC 测试，WebTestClient
+			- 数据访问
+				- 事务，DAO 支持，JDBC，ORM，编组 XML
+			- Web 支持
+				- Spring MVC 和 Spring WebFlux Web 框架
+			- 集成
+				- 远程处理，JMS，JCA，JMX，电子邮件，任务，调度，缓存
+			- 语言
+				- Kotlin，Groovy，动态语言
+- Why
+- How
+	- 重要的 Spring 模块
+		- 下图对应的是 Spring 4.X 的版本，目前最新的 5.X 版本中 Web 模块的 Portlet 组件已经被废弃掉，同时增加了用于异步响应式处理的 WebFlux 组件
+		  ![](https://pdai.tech/images/spring/spring-interview-1.png)
+			- Spring Core
+				- 基础，可以说 Spring 其他所有的功能都依赖于该类库
+				- 主要提供[[IOC]]和 DI 功能
+			- Spring Aspects
+				- 为 AspectJ 的集成提供支持
+			- Spring AOP
+				- 提供面向切面的编程实现
+			- Spring JDBC
+				- Java 数据库连接
+			- Spring JMS
+				- Java 消息服务
+			- Spring ORM
+				- 用于支持 Hibernate 等 ORM 工具
+			- Spring Web
+				- 为创建 Web 应用程序提供支持
+			- Spring Test
+				- 提供了对 JUnit 和 TestNG 测试的支持
+- How Good
+- Refs
+- See Also

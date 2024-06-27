@@ -1,0 +1,20 @@
+- What
+	- 定义
+		- Aspect-Oriented Programming（面向切面编程）能够将那些与业务无关，却被多个业务模块共同调用的逻辑或责任（例如事务处理、日志管理，权限控制等）封装起来，便于减少系统的重复代码，降低模块间的耦合度，并有利于未来的可扩展性和可维护性
+	- 包含的概念
+		- Joinpoint（连接点）
+			- 具体的切面点点抽象概念，可以是在字段、方法上，Spring 中具体表现形式是 PointCut（切入点）
+		- Advice
+		- AOP 代理
+		- Weaving
+- Why
+- How
+	- 实现
+		- Spring AOP 是基于[[动态代理]]的，如果要代理的对象实现了某个接口，那么 Spring AOP 就会使用 JDK 动态代理去创建代理对象
+		- 而对于没有实现接口的对象，就无法使用[[JDK 动态代理]]，转而使用[[CGlib 动态代理]]生成一个被代理对象的子类来作为代理
+		  ![](https://pdai.tech/images/spring/spring-interview-3.png){:height 230, :width 452}
+		- 也可以使用[[AspectJ]](Spring AOP 中已经集成了 AspectJ）
+		- 使用 AOP 之后，可以把一些通用功能抽象出来，在需要用到的地方直接使用，这样可以大大简化代码量；也可以很方便地增加新功能，这样提高了系统的扩展性；日志管理、事务管理和权限管理等场景都用到了 AOP
+- How Good
+- Refs
+- See Also
