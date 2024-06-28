@@ -4,11 +4,16 @@
 			- 特定 JoinPoint 处的 Aspect 所采取的动作称为 Advice
 			- Spring AOP 使用一个 Advice 作为拦截器，在 JoinPoint “周围” 维护一些列的拦截器
 		- 种类
-			- 前置通知（Before advice）
+			- Before advice（前置通知）
 				- 在 joinjoint 方法之前执行，并使用 @Before 注解标记进行配置
-			- 后置通知（After advice）
+			- After advice（后置通知）
 				- 在 joinjoint 方法之后执行（无论方法是正常结束还是异常退出），并使用 @after 注解标记进行配置
-			- 返回后通知（After return advice）
+			- After return advice（返回后通知）
+				- 在 joinjoint 方法正常执行后执行，并使用 @AfterReturning 注解进行配置
+			- Around advice（环绕通知）
+				- 在 joinjoint 方法之前和之后执行，并使用 @Around 注解标记进行配置
+			- After throwing advice（抛出异常后通知）
+				- 仅在 joinpoint 方法通过抛出异常退出并使用 @AfterThrowing 注解标记配置时执行
 - Why
 - How
 - How Good
