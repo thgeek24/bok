@@ -1,5 +1,6 @@
 - What
 	- 定义
+	  collapsed:: true
 		- Spring Framework，一种轻量级框架，旨在提高开发人员的开发效率以及系统的可维护性
 		- 是多个模块的集合：
 			- Core Container（核心容器）
@@ -25,8 +26,6 @@
 				- 远程处理，JMS，JCA，JMX，电子邮件，任务，调度，缓存
 			- 语言
 				- Kotlin，Groovy，动态语言
-- Why
-- How
 	- 重要的 Spring 模块
 		- 下图对应的是 Spring 4.X 的版本，目前最新的 5.X 版本中 Web 模块的 Portlet 组件已经被废弃掉，同时增加了用于异步响应式处理的 WebFlux 组件
 		  ![](https://pdai.tech/images/spring/spring-interview-1.png)
@@ -47,6 +46,8 @@
 				- 为创建 Web 应用程序提供支持
 			- Spring Test
 				- 提供了对 JUnit 和 TestNG 测试的支持
+- Why
+- How
 - How Good
 - Refs
 - See Also

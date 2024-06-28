@@ -1,0 +1,13 @@
+- What
+	- 个人的信息来源，优质信息为主（80%），也保持对随机信息的尝试和接收（20%）
+	- 包括但不限于优质书籍，X、Youtube、Reddit等平台的优质博主，与各行业领先者的交流，etc
+- Why
+- How
+	- X
+		- @howie_serious
+		- @硅谷王川
+	- Youtube
+		- @MoneyXYZ
+- How Good
+- Refs
+- See Also
