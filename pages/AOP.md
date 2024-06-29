@@ -38,9 +38,29 @@
 		- 事务管理（调用方法前开启事务，调用方法后提交关闭事务）
 		- 缓存优化（第一次调用查询数据库，将查询结果放入内存对象；第二次调用，直接从内存返回对象，不需要查询数据库）
 	- Spring AOP VS [[AspectJ]]
-		- |特点|Spring AOP|Aspect J|
-		  ||||
+		- |特性|Spring AOP|AspectJ|
+		  |增强方式|运行时增强|编译时增强|
+		  |基础技术|代理（Proxying）|字节码操作（Bytecode Manipulatioin）|
+		  |集成情况|Spring AOP 集成了 AspectJ|独立存在，Java 生态系统中最完整的 AOP 框架|
+		  |功能强大程度|相对简单|功能更强大|
+		  |性能差异（切面较少时）|差异不大|差异不大|
+		  |性能差异（切面较多时）|性能较慢|性能较快|
+		- 详细解释 #card
+			- 增强方式
+				- Spring AOP：在运行时通过代理对象实现方法增强
+				- AspectJ：在编译时通过字节码操作实现方法增强
+			- 基础技术
+				- Spring AOP：基于代理机制，使用 JDK 动态代理或 CGLIB 代理
+				- AspectJ：通过直接操作字节码来实现增强，提供更细粒度的控制
+			- 集成情况
+				- Spring AOP：与 Spring 框架无缝集成，可以结合使用 AspectJ 的部分功能
+				- AspectJ：作为独立的 AOP 框架，提供了 Java 生态系统中最完整的 AOP 解决方案
+			- 功能强大程度
+				- Spring AOP：提供的功能相对简单，适合大多数常见的 AOP 场景
+				- AspectJ：功能更加强大，适用于更复杂的 AOP 需求
+			- 性能差异
+				- 当切面较少时，两者性能差异不大
+				- 当切面较多时，AspectJ 的性能优于 Spring AOP，因为 AspectJ 的字节码操作在执行时更加高效
 - How Good
 - Refs
 - See Also
--

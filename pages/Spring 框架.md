@@ -11,11 +11,11 @@
 			- 消息和测试模块
 		- 部分模块的具体说明
 			- Core Container 中的 Core 组件是 Spring 所有组件的核心
-			- Beans 组件和 Context 组件是实现[[IOC]]和 DI 的基础
+			- Beans 组件和 Context 组件是实现[[IOC]]和[[DI]]的基础
 			- [[AOP]]组件用来实现面向切面编程
 		- 六个特征
 			- 核心技术
-				- 依赖注入（DI），[[AOP]]，事件（Events），资源，[[i18n]]，验证，数据绑定，类型转换，SpEL
+				- [[依赖注入]]（DI），[[AOP]]，事件（Events），资源，[[i18n]]，验证，数据绑定，类型转换，SpEL
 			- 测试
 				- 模拟对象，TestContext 框架，Spring MVC 测试，WebTestClient
 			- 数据访问
@@ -27,6 +27,7 @@
 			- 语言
 				- Kotlin，Groovy，动态语言
 	- 重要的 Spring 模块
+	  collapsed:: true
 		- 下图对应的是 Spring 4.X 的版本，目前最新的 5.X 版本中 Web 模块的 Portlet 组件已经被废弃掉，同时增加了用于异步响应式处理的 WebFlux 组件
 		  ![](https://pdai.tech/images/spring/spring-interview-1.png)
 			- Spring Core
@@ -48,6 +49,8 @@
 				- 提供了对 JUnit 和 TestNG 测试的支持
 - Why
 - How
+	- [[Spring Bean]]
+	- [[Spring MVC]]
 - How Good
 - Refs
 - See Also

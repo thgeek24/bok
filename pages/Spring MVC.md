@@ -1,0 +1,26 @@
+- What
+	- 定义
+		- MVC
+			- 一种设计模式
+		- Spring MVC
+			- 一款很优秀的 MVC 框架
+	- 优点
+		- 便于进行更简洁的 Web 层的开发
+		- 天生与 Spring 框架集成
+	- 对后端项目的分层
+		- Service 层（服务层）
+		- Dao 层（数据层）
+		- Entity 层（实体层）
+		- Controller 层（控制层，返回数据给前台页面）
+	- 简单原理图
+		- ![](https://pdai.tech/images/spring/spring-interview-6.png)
+- Why
+- How
+	- 工作原理
+	  ![](https://pdai.tech/images/project/project-b-5.png)
+		- 客户端（浏览器）发送请求，直接请求到 DispatcherServlet
+		  logseq.order-list-type:: number
+		- logseq.order-list-type:: number
+- How Good
+- Refs
+- See Also
