@@ -1,5 +1,6 @@
 - What
 	- 生命周期
+	  collapsed:: true
 		- 经历的方法调用分类
 		  collapsed:: true
 			- Bean 自身的方法
@@ -45,6 +46,14 @@
 			- 如果在 `<bean>` 中指定了该 Bean 的作用范围为 scope="singleton"，则将该 Bean 放入 Spring IoC 的缓存池中，将触发 Spring 对该 Bean 的生命周期管理；如果在 `<bean>` 中指定了该 Bean 的作用范围为 scope="prototype"，则将该 Bean 交给调用者，调用者管理该 Bean 的生命周期，Spring 不再管理该 Bean
 			- 如果 Bean 实现了 DisposableBean 接口，则 Spring 会调用 destroy() 方法将 Spring 中的 Bean 销毁；(或者有执行@PreDestroy注解的方法)
 			- 如果在配置文件中通过 **destory-method** 属性指定了 Bean 的销毁方法，则 Spring 将调用该方法对 Bean 进行销毁
+	- 范围
+		- 声明时机
+			- 在 Spring 中定义 Bean 时
+		- 方法
+			- 通过 bean 定义中的 scope 属性
+		- 情形举例
+			- 当 Spring 每次需要生成一个新的 bean 实例时，bean 的 scope 属性就是原型
+			- 当 Spring 每次都必须返回相同的 bean 实例时，bean 的 scope 属性必须设置为 singleton
 - Why
 - How
 	- 单例 bean 的线程安全

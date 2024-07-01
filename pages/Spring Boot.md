@@ -1,0 +1,16 @@
+- What
+	- 定义
+		- 是 Spring 开源组织下的子项目，是 Spring 组件一站式解决方法
+		- 主要简化了使用 Spring 的难度，简省了繁重的配置，提供了各种启动器，开发者能快速上手
+	- 具体优点
+		- 简化 Spring 应用的初始搭建以及开发过程，使用特定的方式来进行配置
+		- 能够创建独立运行的 Spring 应用程序，并通过 main 方法启动
+		- 嵌入的 tomcat 无需部署 war 文件
+		- 简化 maven 配置
+		- 自动配置 Spring 应用，并通过相应的功能启动器（starter）实现自动化配置
+		- 简化 Spring 应用开发，约定大于配置，去繁化简
+- Why
+- How
+- How Good
+- Refs
+- See Also

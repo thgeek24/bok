@@ -51,6 +51,53 @@
 - How
 	- [[Spring Bean]]
 	- [[Spring MVC]]
+	- [[Spring 框架用到的设计模式]]
+	- @Component 和 @Bean 的区别
+	  collapsed:: true
+		- 区别
+			- 作用对象不同
+				- @Component 注解作用于*类*，而 @Bean 注解作用于*方法*
+			- 注册方式不同
+				- @Component 注解通过类路径扫描自动检测并装配到 Spring 容器中，而 @Bean 注解通过标注在方法上来定义 Bean，并由该方法返回实例进行装配
+			- 自定义性和应用场景不同
+				- @Bean 注解比 @Component 注解具有更强的自定义性，并且在某些情况下只能通过 @Bean 注解来注册 Bean，比如装配第三方库的类
+		- 示例
+			- @Bean
+			  ```java
+			  @Configuration
+			  public class AppConfig {
+			      @Bean
+			      public TransferService transferService() {
+			          return new TransferServiceImpl();
+			      }
+			  }
+			  ```
+			- XML
+			  ```xml
+			  # 上面的 java 代码相当于下面的 XML 配置
+			  <beans>
+			      <bean id="transferService" class="com.yanggb.TransferServiceImpl"/>
+			  </beans>
+			  ```
+			- 只能通过 @Bean 而不能通过 @Component 实现的示例
+			  ```java
+			  @Bean
+			  public OneService getService(status) {
+			      case (status)  {
+			          when 1:
+			                  return new serviceImpl1();
+			          when 2:
+			                  return new serviceImpl2();
+			          when 3:
+			                  return new serviceImpl3();
+			      }
+			  }
+			  ```
+	- [[Spring 事务]]
+	- [[Bean Factory]] 和 [[ApplicationContext]]的区别
+		- ApplicationContext 提供了一种解析文本消息的方法，一种加载文件资源（如图像）的通用方法，它们可以将事件发不到注册为侦听器的 bean
+		- 可以在应用程序上下文中以声明方式处理容器中的容器或容器上的操作，这些操作必须以编程方式与 Bean Factory 一起处理
+		- ApplicationContext 实现 MessageSource，一个用于获取本地化消息的接口，实际的实现是可插入的
 - How Good
 - Refs
 - See Also

@@ -1,0 +1,54 @@
+- What
+	- 分类
+		- [[编程式事务]]
+			- 在代码中硬编码（不推荐）
+		- [[声明式事务]]
+			- 在配置文件中配置（推荐）
+				- 基于 XML
+				- 基于注解
+	- 隔离级别
+		- TransactionDefinition 接口中定义的 5 个常量
+		  collapsed:: true
+			- ISOLATION_DEFAULT
+				- 使用后端数据库默认的隔离级别，MySQL 默认采用 [[REPEATABLE READ]]；Oracle 默认采用 [[READ COMMITTED]]
+			- ISOLATION_READ_UNCOMMITTED
+				- 最低的隔离级别，允许读取尚未提交的数据变更
+				- 可能会导致[[脏读]]、[[不可重复读]]或[[幻读]]
+			- ISOLATION_READ_COMMITTED
+				- 允许读取其他事务已经提交的数据
+				- 可以防止[[脏读]]，不能防止[[不可重复读]]或[[幻读]]
+			- ISOLATION_REPEATABLE_READ
+				- 对同一字段的多次读取的结果是一致的，除非数据被所处事务自身所修改
+				- 可以防止[[脏读]]和[[不可重复读 ]]，不能防止[[幻读]]
+			- ISOLATION_SERIALIZABLE
+				- 最高的隔离级别，完全服从[[ACID]]
+				- 所有的事务依次逐个执行，这样事务之间就完全不可能产生干扰
+				- 可以防止[[脏读]]、[[不可重复读]]和[[幻读]]；但该级别严重影响程序的性能，通常情况下不会被用到
+	- 传播行为
+		- TODO TransactionDefinition 接口中定义的 7 个常量
+			- 支持当前事务
+				- PROPAGATION_REQUIRED
+					- 如果当前存在事务，则加入该事务
+					- 如果当前没有事务，则创建一个新的事务
+				- PROPAGATION_SUPPORTS
+					- 如果当前存在事务，则加入该事务
+					- 如果当前没有事务，则以非事务的方式继续运行
+				- PROPAGATION_MANDATORY
+					- 如果当前存在事务，则加入该事务
+					- 如果当前没有事务，则抛出异常
+			- 不支持当前事务
+				- PROPAGATION_REQUIRES_NEW
+					- 创建一个新的事务，如果当前存在事务，则把当前事务挂起
+				- PROPAGATION_NOT_SUPPORTED
+					- 以非事务方式运行，如果当前存在事务，则把当前事务挂起
+				- PROPAGATION_NEVER
+					- 以非事务方式运行，如果当前存在事务，则抛出异常
+			- 其他情况
+				- PROPAGATION_NESTED
+					- 如果当前存在事务，则创建一个事务作为当前事务的嵌套事务来运行
+					- 如果当前没有事务，则该取值等价于PROPAGATION_REQUIRED
+- Why
+- How
+- How Good
+- Refs
+- See Also

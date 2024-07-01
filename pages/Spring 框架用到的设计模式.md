@@ -1,0 +1,20 @@
+- What
+	- [[工厂模式]]
+		- Spring 使用工厂模式通过 BeanFactory 和 ApplicationContext 创建 bean 对象
+	- [[代理模式]]
+		- Spring AOP 功能的实现
+	- [[单例模式]]
+		- Spring 中的 bean 默认都是单例的
+	- [[模版方法模式]]
+		- Spring 中的 jdbcTemplate、hibernateTemplate 等以 Template 结尾的对数据库操作的类，它们就使用到了模板模式
+	- [[包装器模式]]
+		- 项目连接多个数据库，而且不同的客户在每次访问中根据需要会去访问不同的数据库，这种模式让我们可以根据客户的需求能够动态切换不同的数据源
+	- [[观察者模式]]
+		- Spring 事件驱动模式就是观察者很经典的一个应用
+	- [[适配器模式]]
+		- Spring AOP 的增强或通知（Advice）使用了适配器模式；Spring MVC 中也用到了适配器模式适配 Controller
+- Why
+- How
+- How Good
+- Refs
+- See Also
