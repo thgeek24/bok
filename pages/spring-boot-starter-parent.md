@@ -1,0 +1,15 @@
+- What
+	- 定义
+		- TODO Spring Boot 项目默认的 parent
+	- 作用
+		- 定义了 Java 编译版本
+		- 使用 UTF-8 格式编码
+		- 继承 spring-boot-dependencies，其中定义了依赖版本，也因为继承了该依赖，我们在写依赖时才不需要写版本号
+		- 执行打包操作的配置
+		- 自动化的资源过滤
+		- 自动化的插件配置
+- Why
+- How
+- How Good
+- Refs
+- See Also

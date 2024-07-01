@@ -1,0 +1,18 @@
+- What
+	- 定义
+		- TODO Spring Boot 项目的一个包
+	- 作用
+		- 提供了一些像 jar 一样打包或者运行应用程序的命令
+			- spring-boot:run
+				- 运行 Spring Boot 应用程序
+			- spring-boot:repackage
+				- 重新打 jar 包或者是 war 包
+			- spring-boot:start 和 spring-boot:stop
+				- 管理 Spring Boot 应用程序的声明周期
+			- spring-boot:build-info
+				- 生成执行器可以使用的构造信息
+- Why
+- How
+- How Good
+- Refs
+- See Also

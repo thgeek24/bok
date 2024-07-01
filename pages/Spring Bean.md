@@ -51,8 +51,8 @@
 			- 在 Spring 中定义 Bean 时
 		- 方法
 			- 通过 bean 定义中的 scope 属性
-		- 情形举例
-			- 当 Spring 每次需要生成一个新的 bean 实例时，bean 的 scope 属性就是原型
+		- 例如
+			- 当 Spring 每次需要生成一个新的 bean 实例时，bean 的 scope 属性就是 prototype
 			- 当 Spring 每次都必须返回相同的 bean 实例时，bean 的 scope 属性必须设置为 singleton
 - Why
 - How
