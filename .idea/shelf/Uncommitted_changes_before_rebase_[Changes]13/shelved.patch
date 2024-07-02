@@ -6,8 +6,8 @@ Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
 <+>UTF-8
 ===================================================================
 diff --git a/pages/TCP 四次挥手.md b/pages/TCP 四次挥手.md
---- a/pages/TCP 四次挥手.md	(revision af5af8304bea57434c9523f2d4a43e7b2cb27e64)
-+++ b/pages/TCP 四次挥手.md	(date 1719232623041)
+--- a/pages/TCP 四次挥手.md	
++++ b/pages/TCP 四次挥手.md	
 @@ -31,10 +31,22 @@
  		- 2 MSL，最大报文生存时间
  			- 1 MSL = 30 S，2 MSL = 60 S
